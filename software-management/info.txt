@@ -1,0 +1,41 @@
+Mailinglist
+-----------
+https://lists.shackspace.de/mailman/admin/key
+Passwd:foobar42
+
+Access the shared data container
+--------------------------------
+place "[NAME]-ACTIVE" in the Ubuntu One shared folder
+wait until ubuntu one finished syncing
+truecrypt --mount portal.tc /mnt/
+do something
+sync
+truecrype -d portal.tc
+wait until ubuntu one finished syncing
+remove "[NAME]-ACTIVE"
+
+Generate new User
+-----------------
+./genkey.sh 123 Diddi Stulle
+sqlitebrowser shackspacekey.sql3
+set FirstValidDate (after 5 days) and LastValidDate (2011-03-01 23:23:23)
+if (!public key available){
+export Private Key;
+transfer Private Key;
+}else{
+replace PublicKey with commited public key;
+replace last line (key comment) in public key with serial number
+}
+
+Exchange data with portal system
+--------------------------------
+./setdate.sh (Set the portal system time to laptop system time)
+./exportkeys.sh (Transfers the accessfile from and the keyfiles to the portal system)
+
+Active changes on portal
+------------------------
+ssh -i root.key root@192.168.1.1
+cd /mmc
+./cron.sh (Have a look the new user serial number is part of the printed list)
+
+
