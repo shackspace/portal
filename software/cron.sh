@@ -35,8 +35,8 @@ do
   if [ $unixrightnow -le $end ]
   then
    echo $serial
-   echo "command=\"/mmc/open/open.sh ${serial}\",no-X11-forwarding,no-port-forwarding ssh-rsa $key $serial" >>/mmc/transfer2/authorized_keys.open
-   echo "command=\"/mmc/close/close.sh ${serial}\",no-X11-forwarding,no-port-forwarding ssh-rsa $key $serial" >>/mmc/transfer2/authorized_keys.close
+   echo "command=\"${serial}\",no-X11-forwarding,no-port-forwarding ssh-rsa $key $serial" >>/mmc/transfer2/authorized_keys.open
+   echo "command=\"${serial}\",no-X11-forwarding,no-port-forwarding ssh-rsa $key $serial" >>/mmc/transfer2/authorized_keys.close
   fi
  fi
 
